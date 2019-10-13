@@ -1,0 +1,41 @@
+main:
+  port: "5000"
+servers:
+  google-test:
+    commands:
+    - sudo apt-get update
+    - sudo apt-get install git
+    - git clone https://github.com/igorpollo/automation.git
+    - pwd
+    - docker build -t automation ./automation/.
+    - docker run -d -p 80:5000 automation
+    config: f1-micro
+    region: us-central1-a
+    image: docker-18-04
+    provider: Google
+  test:
+    commands:
+    - sudo apt-get update
+    - sudo apt-get install git
+    - git clone https://github.com/igorpollo/pet-api
+    config: s-1vcpu-1gb
+    region: nyc3
+    image: docker-18-04
+    provider: DigitalOcean
+  test2:
+    commands:
+    - sudo apt-get update
+    - sudo apt-get install git
+    - git clone https://github.com/igorpollo/automation.git
+    - pwd
+    - docker build -t automation ./automation/.
+    - docker run -d -p 80:5000 automation
+    config: s-1vcpu-1gb
+    region: nyc3
+    image: docker-18-04
+    provider: DigitalOcean
+createdbyip:
+  123.123.123.123:
+    id: 213123
+    created_at: "123"
+    ip: "322222"
