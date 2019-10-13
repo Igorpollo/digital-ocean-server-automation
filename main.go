@@ -91,13 +91,6 @@ func createServer(w http.ResponseWriter, req *http.Request) {
 			return
 		}
 		w.Write([]byte("Server created successfully"))
-	case "Google":
-		err := createGoogleCloud(server, s.ServerName)
-		if err != nil {
-			w.Write([]byte("Error creating the server"))
-			return
-		}
-		w.Write([]byte("Server created successfully"))
 	}
 }
 
